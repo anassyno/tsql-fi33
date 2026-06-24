@@ -1,3 +1,5 @@
+--DROP TABLE titel;
+
 CREATE TABLE genre (
 g_id INT IDENTITY(1,1) PRIMARY KEY,
 genre VARCHAR(30)
