@@ -20,7 +20,7 @@ bezeichnung VARCHAR(20)
 );
 
 CREATE TABLE mitarbeiter (
-id INT IDENTITY(1,1) PRIMARY KEY,
+id INT IDENTITY(1,1),
 nachname VARCHAR(20),
 vorname VARCHAR(20),
 adresse VARCHAR(20),
@@ -30,9 +30,10 @@ geburtsdatum DATE,
 fs_id INT,
 ab_id INT,
 am_id CHAR(2),
-FOREIGN KEY (fs_id) REFERENCES familienstand(fs_id),
-FOREIGN KEY (ab_id) REFERENCES abteilung(ab_id),
-FOREIGN KEY (am_id) REFERENCES arbeitsmodell(am_id)
+CONSTRAINT pk_ma_id PRIMARY KEY (id),
+CONSTRAINT fk_ma_fs FOREIGN KEY (fs_id) REFERENCES familienstand(fs_id),
+CONSTRAINT fk_ma_ab FOREIGN KEY (ab_id) REFERENCES abteilung(ab_id),
+CONSTRAINT fk_ma_am FOREIGN KEY (am_id) REFERENCES arbeitsmodell(am_id)
 );
 
 --DBCC CHECKIDENT ('familiens', RESEED, 0);

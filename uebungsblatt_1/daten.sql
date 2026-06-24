@@ -27,7 +27,7 @@ INSERT INTO mitarbeiter VALUES
 ('Fahrer', 'Bob', 'Mozartstr. 7', '90768', 'Fuerth','1972-11-02' ,5 ,7 ,'vz'),
 ('Platz', 'Alexander', 'Lessingstr. 72', '91054', 'Erlangen','1955-08-01' ,2 ,7 ,'vz'),
 ('Kreuz', 'Andreas', 'Ringstr. 40',	'90765', 'Fuerth', '1974-04-26', 3,	2, 'ho'), 
-('Geber', 'Ann', 'Schillerstr. 25', '90762', 'Fuerth', '1987-03-17', 3,	4, 'vz'),
+('Geber', 'Ann', 'Schillerstr. 25', '90762', 'Fuerth', '1987-03-17', 3,	10, 'vz'),
 ('Zug', 'Ann', 'Lindenweg 12', '90411', 'Nuernberg', '1996-03-20',	5, 2, 'mm'),
 ('Bolika', 'Anna', 'Bahnhofstr. 142', '90425', 'Nuernberg', '1981-04-20', 5, 6, 'vz'), 
 ('Nass', 'Anna', 'Dorfstr. 18', '90409', 'Nuernberg', '1959-02-10', 2, 5, 'ho'),
