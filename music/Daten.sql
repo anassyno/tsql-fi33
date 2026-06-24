@@ -154,8 +154,8 @@ select * from IN_VER;
 
 select titel, interpret.name, genre.genre from titel
 join interpret on titel.interpret_id = interpret.i_id
-join genre on titel.genre_id = genre.g_id
+join genre on titel.genre_id = genre.g_id;
 
-select in_ver, interpret.name, veranstaltungsort.ort_name, datum_von, datum_bis from in_ver
+select IN_VER, interpret.name, veranstaltungsort.ort_name, datum_von, datum_bis from IN_VER
 join interpret on in_ver.i_nr = interpret.i_id
-join veranstaltungsort on in_ver.v_nr = veranstaltungsort.v_id
+join veranstaltungsort on in_ver.v_nr = veranstaltungsort.v_id;
