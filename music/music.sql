@@ -25,7 +25,7 @@ v_id INT IDENTITY(1,1) PRIMARY KEY,
 ort_name VARCHAR(30)
 );
 
-CREATE TABLE IN_VER (
+CREATE TABLE in_ver (
 i_nr INT,
 v_nr INT,
 datum_von DATE,

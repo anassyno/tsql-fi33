@@ -90,7 +90,7 @@ INSERT INTO veranstaltungsort VALUES
 ('Vegas'),
 ('Nuernberg');
 
-INSERT INTO IN_VER VALUES
+INSERT INTO in_ver VALUES
 (1, 1, '2026-03-10', '2026-03-11'),
 (1, 3, '2026-07-05', '2026-07-07'),
 (1, 2, '2027-06-01', '2027-06-01'),
@@ -150,12 +150,12 @@ select * from genre;
 select * from interpret;
 select * from titel;
 select * from veranstaltungsort;
-select * from IN_VER;
+select * from in_ver;
 
 select titel, interpret.name, genre.genre from titel
 join interpret on titel.interpret_id = interpret.i_id
 join genre on titel.genre_id = genre.g_id;
 
-select IN_VER, interpret.name, veranstaltungsort.ort_name, datum_von, datum_bis from IN_VER
+select interpret.name, veranstaltungsort.ort_name, datum_von, datum_bis from in_ver
 join interpret on in_ver.i_nr = interpret.i_id
 join veranstaltungsort on in_ver.v_nr = veranstaltungsort.v_id;
