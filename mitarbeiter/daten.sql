@@ -117,4 +117,4 @@ join abteilung a on a.ab_id=m.ab_id
 join arbeitsmodell azm on azm.am_id=m.am_id
 join ma_sk ms on ms.ma_id=m.id
 join skills s on s.id=ms.sk_id
-order by ma_id
+order by m.id
