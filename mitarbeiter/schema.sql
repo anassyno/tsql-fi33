@@ -36,6 +36,25 @@ CONSTRAINT fk_ma_ab FOREIGN KEY (ab_id) REFERENCES abteilung(ab_id),
 CONSTRAINT fk_ma_am FOREIGN KEY (am_id) REFERENCES arbeitsmodell(am_id)
 );
 
+CREATE TABLE skills (
+id INT IDENTITY(1,1) PRIMARY KEY,
+name VARCHAR(25)
+);
+
+CREATE TABLE ma_sk (
+ma_id INT,
+sk_id INT,
+CONSTRAINT fk_ma_id FOREIGN KEY (ma_id) REFERENCES mitarbeiter (id),
+CONSTRAINT fk_sk_id FOREIGN KEY (sk_id) REFERENCES skills (id),
+CONSTRAINT pk_ma_sk PRIMARY KEY (ma_id, sk_id)
+);
+
 --DBCC CHECKIDENT ('familiens', RESEED, 0);
 
 --SELECT * FROM familienstand;
+
+--SELECT * FROM skills;
+
+--SELECT * FROM ma_sk;
+--DROP TABLE skills;
+--DROP TABLE ma_sk;
