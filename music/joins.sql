@@ -33,21 +33,32 @@ on m.abt=a.id;
 
 
 --from here copied from Boris. gotta check the names
-select vname, bez from mitarbeiterleft join abteilung on abt = abteilung.id
 
-select vname, bez from mitarbeiterleft join abteilung on abt = abteilung.id
+select vname, bez from mitarbeiter
+left join abteilung on abt = abteilung.id
 
-select vname, bez from mitarbeiterright join abteilung on abt = abteilung.id
+select vname, bez from mitarbeiter
+left join abteilung on abt = abteilung.id
 
-select vname, bez from mitarbeiterfull outer join abteilung on abt = abteilung.id
+select vname, bez from mitarbeiter
+right join abteilung on abt = abteilung.id
 
-select vname, bez from mitarbeiterleft join abteilung on abt = abteilung.id
-where abteilung.id is nullselect vname, bez from mitarbeiterright 
-join abteilung on abt = abteilung.idwhere mitarbeiter.id is null
+select vname, bez from mitarbeiter
+full outer join abteilung on abt = abteilung.id
 
-select vname, bez from mitarbeiterfull 
-outer join abteilung on abt = abteilung.id
+select vname, bez from mitarbeiter
+left join abteilung on abt = abteilung.id
+where abteilung.id is null
+
+select vname, bez from mitarbeiter
+right join abteilung on abt = abteilung.id
+where mitarbeiter.id is null
+
+select vname, bez from mitarbeiter
+full outer join abteilung on abt = abteilung.id
 where mitarbeiter.id is null or abteilung.id is null
 
-select vname Vorname, bez Abteilungfrom mitarbeiterfull 
-outer join abteilung on abt = abteilung.idwhere mitarbeiter.id is null or abteilung.id is null
+select vname Vorname, bez Abteilung
+from mitarbeiter
+full outer join abteilung on abt = abteilung.id
+where mitarbeiter.id is null or abteilung.id is null
