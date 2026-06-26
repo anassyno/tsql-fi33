@@ -7,6 +7,9 @@ INSERT INTO genre VALUES
 ('Electronic'),
 ('Reggae');
 
+INSERT INTO genre VALUES
+('Alternative');
+
 select * from genre;
 
 INSERT INTO interpret VALUES
@@ -80,7 +83,12 @@ insert into titel values
 ('Papercut', 10, 1), 
 ('Somewhere I Belong', 10, 1);
 
+select * from genre;
+select * from veranstaltungsort;
 
+select * from titel where titel.titel='numb';
+
+update titel set genre_id = 8 where titel.titel = 'numb' 
 
 INSERT INTO veranstaltungsort VALUES
 ('Nuernberg'),
