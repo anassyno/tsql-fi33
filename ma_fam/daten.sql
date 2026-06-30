@@ -9,6 +9,19 @@ INSERT INTO menschlein VALUES
 ('Eddi', 2),
 ('Lorenz', 2);
 
+insert into familienstand values 
+('verwitwet'),
+('eingetr. Lebensgemeinschaft')
+
+insert into menschlein values 
+('Charlie',3),
+('Laura',5),
+('Melanie',1),
+('Jack',1), 
+('Daniel',1),
+('Martha',null),
+('Harry',null)
+
 SELECT * FROM familienstand;
 SELECT * FROM menschlein;
 
@@ -39,3 +52,4 @@ where vname like '____'
 --LEFT JOIN sys.columns rc ON fkc.referenced_object_id = rc.object_id AND fkc.referenced_column_id = rc.column_id
 --WHERE t.name IN ('familienstand', 'menschlein')
 --ORDER BY Tabelle, Spalte;
+
