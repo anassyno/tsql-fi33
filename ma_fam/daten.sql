@@ -22,6 +22,14 @@ insert into menschlein values
 ('Martha',null),
 ('Harry',null)
 
+insert into menschlein values 
+('Alex',3),
+('Klara',1),
+('Maren',4)
+
+insert into menschlein values 
+('Jan', 2);
+
 SELECT * FROM familienstand;
 SELECT * FROM menschlein;
 
