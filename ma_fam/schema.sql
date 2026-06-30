@@ -1,10 +1,10 @@
---DROP TABLE menschlein;
---DROP TABLE familienstand;
+DROP TABLE menschlein;
+DROP TABLE familienstand;
 
 
 CREATE TABLE familienstand (
 fid INT IDENTITY(1,1) PRIMARY KEY,
-fbez VARCHAR(20)
+fbez VARCHAR(50)
 );
 
 CREATE TABLE menschlein (
@@ -15,3 +15,6 @@ fid INT,
 CONSTRAINT PK_mensch PRIMARY KEY (id),
 CONSTRAINT fk_mensch_familienstand FOREIGN KEY  (fid) REFERENCES familienstand(fid)
 );
+
+ALTER TABLE familienstand 
+ALTER COLUMN fbez VARCHAR(60);
