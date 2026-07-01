@@ -5,7 +5,7 @@ use mitarbeiter;
 select m.nachname, m.vorname
 from mitarbeiter m 
 join arbeitsmodell azm on azm.am_id = m.am_id
-where m.plz between 90402 and 90491 
+where m.plz between '90402' and '90491' 
 and azm.bezeichnung like 'home%';
 
 --7
