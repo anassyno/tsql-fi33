@@ -49,6 +49,13 @@ where veranstaltungsort.ort_name like 'N%rnberg';
 insert into in_ver values
 (2, 1, '2025-12-28', '2025-12-28');
 
+--also possible would be:
+--insert into in_ver
+--select interpret.i_id, veranstaltungsort.v_id, '2025-12-28', '2025-12-28'
+--from interpret
+--cross join veranstaltungsort
+--where interpret.name = 'Adele' and veranstaltungsort.ort_name like 'N%rnberg';
+
 --12
 select * from veranstaltungsort
 where veranstaltungsort.ort_name in ('nürnberg', 'nuernberg');
