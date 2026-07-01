@@ -96,7 +96,7 @@ INSERT INTO veranstaltungsort VALUES
 ('Elan-gen'),
 ('Dortmund'),
 ('Vegas'),
-('Nuernberg');
+('Nürnberg');
 
 INSERT INTO in_ver VALUES
 (1, 1, '2026-03-10', '2026-03-11'),

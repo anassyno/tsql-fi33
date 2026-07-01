@@ -30,7 +30,7 @@ m.vorname Vorname,
 a.bezeichnung Abteilung,
 azm.bezeichnung Arbeitszeitmodell,
 m.geburtsdatum Geburtsdatum,
-m.adresse Straße und Hausnummer,
+m.adresse 'Straße und Hausnummer',
 m.plz PLZ,
 m.ort Wohnort
 from mitarbeiter m 
@@ -54,7 +54,7 @@ select * from veranstaltungsort
 where veranstaltungsort.ort_name in ('nürnberg', 'nuernberg');
 
 --13
-delete * from veranstaltungsort
+delete from veranstaltungsort
 where veranstaltungsort.ort_name ='nürnberg';
 
 --14
