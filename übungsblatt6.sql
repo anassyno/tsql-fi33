@@ -160,13 +160,12 @@ drop table tl3_manwoman;
 drop table tl3_interessen;
 */
 
-select i.intnr, count(mi.mwnr)
-from tl3_interessen i
-join tl3_mw_interessen mi on i.intnr = mi.intnr
-group by i.intnr
+select mi.intnr, count(*)
+from tl3_mw_interessen mi
+group by mi.intnr
 order by count(mi.mwnr);
 
-select top 3 mw.vorname, mw.mwnr
+select top 3 mw.vorname--, mw.mwnr
 from tl3_manwoman mw
 order by mw.mwnr desc;
 
