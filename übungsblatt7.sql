@@ -21,7 +21,6 @@ where mw.mwnr in
 (
 select i.mwnr
 from tl3_mw_interessen i
-group by i.mwnr
 );
 
 --3 Wer hat keine zugeordneten Interessen?
@@ -36,7 +35,6 @@ where mw.mwnr not in
 (
 select i.mwnr
 from tl3_mw_interessen i
-group by i.mwnr
 );
 
 --4 Welche Interessen haben meine Freunde? (nachname, Vorname, Interesse (also z. B. Lesen)) 
@@ -46,15 +44,15 @@ join tl3_mw_interessen mi on mi.mwnr = mw.mwnr
 join tl3_interessen i on i.intnr = mi.intnr;
 
 --mit subselect, but actually works without the where part too, so no real subselect
-select mw.vorname, mw.nachname, i.inttext
-from tl3_manwoman mw
-join tl3_mw_interessen mi on mi.mwnr = mw.mwnr
-join tl3_interessen i on i.intnr = mi.intnr
-where mi.intnr in
-(
-select mi.intnr
-from tl3_mw_interessen mi
-);
+select mw.vorname, mw.nachname, i.inttext           --no real solution
+from tl3_manwoman mw                                --no real solution
+join tl3_mw_interessen mi on mi.mwnr = mw.mwnr      --no real solution
+join tl3_interessen i on i.intnr = mi.intnr         --no real solution
+where mi.intnr in                                   --no real solution
+(                                                   --no real solution
+select mi.intnr                                     --no real solution
+from tl3_mw_interessen mi                           --no real solution
+);                                                  --no real solution
 
 --alternativ
 SELECT mw.vorname, mw.nachname, i.inttext
@@ -95,6 +93,16 @@ join tl3_manwoman mw on mw.mwnr = mi.mwnr
 group by mw.vorname, mw.nachname
 having mw.nachname = 'Kron';
 
+select count(*)
+from tl3_mw_interessen mi
+group by mi.mwnr
+having mi.mwnr in
+(
+select mw.mwnr
+from tl3_manwoman mw
+where mw.nachname = 'Kron'
+);
+
 --7 Welcher meiner Freunde (nachname, vorname) hat die gleichen Hobbies wie Lecter?
 select distinct mw.vorname, mw.nachname
 from tl3_manwoman mw
@@ -110,7 +118,7 @@ and mw.nachname != 'Lecter';
 
 --8 Welche intnr wurden am häufigsten genannt und wie oft?  Sternchenaufgabe 
 --Tipp: count und max aber ohne top
-select mi.intnr
+select mi.intnr, count(*)
 from tl3_mw_interessen mi
 group by mi.intnr
 having count(*) = 
@@ -144,6 +152,22 @@ group by mi.intnr
 )
 );
 
+--alternativ
+select i.inttext, count(*)
+from tl3_mw_interessen mi
+join tl3_interessen i on i.intnr = mi.intnr
+group by i.inttext
+having count(*) = 
+(
+select max(temp.Anzahl)
+from
+(
+select mi.intnr, count(*) Anzahl
+from tl3_mw_interessen mi
+group by mi.intnr
+)temp
+);
+
 --10 Wer hat genauso viele Interessen wir die Person mit dem Nachnamen Tuck?  
 --Doppel-Sternchenaufgabe
 select mw.vorname, mw.nachname
@@ -157,7 +181,8 @@ from tl3_mw_interessen mi
 join tl3_manwoman mw on mw.mwnr = mi.mwnr
 group by mw.nachname
 having mw.nachname = 'Tuck'
-);
+)
+and mw.nachname != 'Tuck';
 
 --Sternchen extrem 
 --Meine Freunde haben viele Hobbies. Ein oder mehrere Hobbies wurden am häufigsten genannt.  
@@ -192,3 +217,4 @@ group by mi.intnr
 )temp
 )
 );
+
