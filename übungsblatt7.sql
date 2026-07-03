@@ -56,6 +56,16 @@ select mi.intnr
 from tl3_mw_interessen mi
 );
 
+--alternativ
+SELECT mw.vorname, mw.nachname, i.inttext
+FROM tl3_manwoman mw, tl3_interessen i
+WHERE mw.mwnr IN 
+(
+    SELECT mi.mwnr 
+    FROM tl3_mw_interessen mi
+    WHERE mi.intnr = i.intnr
+);
+
 -- 5 Welcher meiner Freunde liest gerne?
 select mw.nachname, mw.vorname
 from tl3_mw_interessen mi
