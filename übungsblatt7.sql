@@ -45,7 +45,7 @@ from tl3_manwoman mw
 join tl3_mw_interessen mi on mi.mwnr = mw.mwnr
 join tl3_interessen i on i.intnr = mi.intnr;
 
---mit subselect
+--mit subselect, but actually works without the where part too, so no real subselect
 select mw.vorname, mw.nachname, i.inttext
 from tl3_manwoman mw
 join tl3_mw_interessen mi on mi.mwnr = mw.mwnr
