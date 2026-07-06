@@ -1,4 +1,6 @@
 --1
+use ueb10;
+
 create table zahlen2 (
 zahl int);
 
@@ -86,7 +88,7 @@ select l.landnr
 from land l
 where l.landbez = 'australien'
 )
-where id in (16, 23, 37);
+where id in (16, 23, 37, 12);
 
 update mitarbeiter 
 set mlandnr = (
