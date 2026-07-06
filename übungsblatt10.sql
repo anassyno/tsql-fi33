@@ -72,13 +72,36 @@ add constraint fk_ma_la
 foreign key (mlandnr) references land(landnr);
 
 --5
-update mitarbeiter set mlandnr = 2
+update mitarbeiter 
+set mlandnr = (
+select l.landnr
+from land l
+where l.landbez = 'brasilien'
+)
 where id in (6, 7);
-update mitarbeiter set mlandnr = 5
+
+update mitarbeiter 
+set mlandnr = (
+select l.landnr
+from land l
+where l.landbez = 'australien'
+)
 where id in (16, 23, 37);
-update mitarbeiter set mlandnr = 9
+
+update mitarbeiter 
+set mlandnr = (
+select l.landnr
+from land l
+where l.landbez = 'südafrika'
+)
 where id in (11, 13);
-update mitarbeiter set mlandnr = 1
+
+update mitarbeiter 
+set mlandnr = (
+select l.landnr
+from land l
+where l.landbez = 'deutschland'
+)
 where mlandnr is null;
 
 select * from mitarbeiter;
