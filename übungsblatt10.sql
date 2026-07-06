@@ -109,7 +109,8 @@ where mlandnr is null;
 select * from mitarbeiter;
 
 --6
-select m.id 'MA-ID', m.nachname Nachname, m.vorname Vorname, l.landbez Land, zz.zonenbez Zonenbezeichnung, zz.utc_offset 'UTC-Offset'
+select m.id 'MA-ID', m.nachname Nachname, m.vorname Vorname, 
+l.landbez Land, zz.zonenbez Zonenbezeichnung, zz.utc_offset 'UTC-Offset'
 from mitarbeiter m
 join land l on m.mlandnr = l.landnr
 join zeitzone zz on zz.zonennr = l.zonennr
